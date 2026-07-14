@@ -1,0 +1,12 @@
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 45px;
+  justify-content: center;
+  margin-bottom: 116px;
+  color: #515076;
+}
+
+.product-list__item {
+  width: 340px;
+}
