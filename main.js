@@ -38,13 +38,11 @@ function outputConsoleLog(message) {
 const headline = document.querySelector('.headline');
 
 headline.addEventListener('mouseover', function() {
-  console.log(headline);
+  console.log(headline.textContent);
 })
 
-const thirdCard = document.querySelector('.card:nth-of-type(3)');
-const selectColorButton = document.querySelector('#select-card-color-button');
+const selectColorButton = document.querySelector('#select-button-color');
 
 selectColorButton.addEventListener('click', () => {
-  thirdCard.style.backgroundColor = '';
-  thirdCard.classList.toggle('active');
+  selectColorButton.classList.toggle('active');
 });

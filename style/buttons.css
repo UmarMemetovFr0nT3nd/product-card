@@ -15,3 +15,7 @@
   color: #ffffff; 
   -webkit-text-stroke: 0.5px #515076;
 }
+
+.buttons-container__button.active {
+  background-color: #99aa44;
+}
