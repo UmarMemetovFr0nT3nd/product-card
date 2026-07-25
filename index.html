@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="style/card.css">
     <link rel="stylesheet" href="style/product-list.css">
     <link rel="stylesheet" href="style/container.css">
+    <link rel="stylesheet" href="style/buttons.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic" rel="stylesheet" />
   </head>
   <body>
@@ -19,6 +20,14 @@
       <div class="container dandelion-background">
 
         <h1 class="headline">Выбери свой продукт</h1>
+
+      <div class="container buttons-container">
+        <button id="change-card-color-button" class="buttons-container__button">Поменять цвет карточки</button>
+        <button id="change-all-cards-color-button" class="buttons-container__button">Поменять цвет всех карточек</button>
+        <button id="go-to-google-button" class="buttons-container__button">Перейти в Google</button>
+        <button id="log-to-console-button" class="buttons-container__button">Вывести в консоль</button>
+        <button id="select-button-color" class="buttons-container__button">Поменять цвет кнопки</button>
+      </div>
 
       <ul class="product-list clear-list">
         <li class="product-list__item card">
@@ -119,5 +128,6 @@
       </div>
 
     </main>
+    <script src="main.js"></script>
   </body>
 </html>
