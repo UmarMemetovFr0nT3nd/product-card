@@ -17,7 +17,7 @@ console.log(favoriteCar);
 // 4. Задание
 
 function reverseArray(arr) {
-  return arr.reverse();
+  return [...arr].reverse();
 }
 
 console.log(reverseArray(fifthNumbers));
