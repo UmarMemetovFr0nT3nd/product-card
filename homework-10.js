@@ -21,7 +21,7 @@ function getDisplayCards(cardsArray) {
 function getNumberCards() {
   const howManyCards = prompt('Сколько карточек вы хотите отобразить?');
   const count = Number(howManyCards);
-  if (isNaN(count) || count < 1 || count > 5) {
+  if (isNaN(count) || !Number.isInteger(count) || count < 1 || count > 5) {
     alert('Пожалуйста, введите корректное число от 1 до 5!');
     return 0;
   }
