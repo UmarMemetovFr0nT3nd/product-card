@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +15,7 @@
     <link rel="stylesheet" href="style/buttons.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic" rel="stylesheet" />
   </head>
+
   <body>
     <main>
 
@@ -21,7 +23,7 @@
 
         <h1 class="headline">Выбери свой продукт</h1>
 
-      <div class="container buttons-container">
+      <!-- <div class="container buttons-container">
         <button id="change-card-color-button" class="buttons-container__button">Поменять цвет карточки</button>
         <button id="change-all-cards-color-button" class="buttons-container__button">Поменять цвет всех карточек</button>
         <button id="go-to-google-button" class="buttons-container__button">Перейти в Google</button>
@@ -124,7 +126,31 @@
             <span>7 520  &#8381</span>
           </div>
         </li>
-      </ul>
+      </ul> -->
+
+      <ul class="product-list clear-list" ></ul>
+
+      <template id="product-card-template">
+        <li class="product-list__item card">
+          <img class="card__image" width="290" height="245"/>
+          <span class="card__category"></span>
+          <h2 class="card__name"></h2>
+          <p class="card__description">.</p>
+          <div class="card__compound-list compound">
+            <span class="compound__title">Состав:</span>
+            <ul class="compound__list">
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
+          <div class="card__price">
+            <b>Цена</b>
+            <span id="card__price"></span>
+          </div>
+        </li>
+      </template>
+
       </div>
 
     </main>
@@ -132,5 +158,6 @@
     <script src="homework-7.js"></script>
     <script src="homework-8.js"></script>
     <script  type="module" src="homework-9.js"></script>
+    <script type="module" src="homework-10.js"></script>
   </body>
 </html>
