@@ -11,3 +11,8 @@ body {
   font-size: 13px;
   line-height: 18px;
 }
+
+main {
+  position: relative;
+  z-index: -1;
+}
