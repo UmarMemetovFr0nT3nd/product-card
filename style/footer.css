@@ -1,0 +1,178 @@
+.header {
+  background-color: #3A3A3A;
+  height: 100px;
+  position: sticky;
+  top:0;
+  z-index: 1;
+  width: 100%;
+}
+
+.header button {
+  margin-left: 20px;
+  margin-top: 10px;
+  height: 80px;
+  width: 85px;
+  border-radius: 100%;
+  background-color: #515076;
+  border: 1px solid white;
+  color: white;
+  cursor: pointer;
+}
+
+.header button:hover {
+  background-color: #646379;
+}
+
+
+
+
+
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+
+
+
+
+.footer {
+  background-color: #3A3A3A;
+  width: 100%;
+  padding: 28px 75px;
+  color: #FFFFFF;
+}
+
+.footer__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 1569px;
+  margin-bottom: 162px;
+  margin-top: 85px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+.footer__advertising {
+  width: max-content;
+  margin-right: -200px;
+}
+
+.footer__advertising-title {
+  margin-bottom: 26px;
+  font-size: 28px;
+
+}
+
+.footer__advertising-slogan {
+  margin-bottom: 42px;
+  font-size: 18px;
+}
+
+.footer__advertising a {
+  margin-right: 30px;
+} 
+
+
+
+.footer__subscribe {
+  width: 477px;
+  text-align: center;
+}
+
+.footer__subscribe-label {
+  display: block;
+  margin-bottom: 13px;
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: 400;
+  color: #FFFFFF;
+}
+
+.footer__subscribe-input {
+  width: 477px;
+  height: 61px;
+  padding: 0 20px;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+}
+
+#userEmail {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  color: #000000;
+}
+
+.input__line {
+  width: 1px;
+  height: 18px;
+  background-color: #000000;
+  margin: 0 15px;
+}
+
+#subscribeButton {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  color: #000000;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 0;
+}
+
+#subscribeButton:hover {
+  color: #646379;
+}
+
+
+
+.footer__links {
+  width: 200px;
+  font-size: 18px;
+}
+
+.footer__links-title {
+  margin-bottom: 23px;
+  font-size: 20px;
+}
+
+.footer__links-mine {
+  display: block;
+  margin-bottom: 17px;
+}
+
+.footer__links-store {
+  display: block;
+  margin-bottom: 17px;
+}
+
+.footer__links-contacts {
+  display: block;
+}
+
+
+.footer__line {
+  width: 66px;
+  margin: 33px auto;
+}
+
+.footer__link {
+  display: block;
+  width: max-content;
+  margin: 0 auto;
+  font-size: 18px;
+}

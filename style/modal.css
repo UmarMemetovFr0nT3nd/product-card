@@ -1,0 +1,85 @@
+.modal {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.modal-showed {
+  display: block;
+}
+
+.modal__body {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 10px;
+}
+
+.modal__content {
+  border-radius: 10px;
+  background-color: #fff;
+  width: 500px;
+  padding: 30px;
+  position: relative;
+  color: #515076;
+  font-size: 15px;
+}
+
+.modal__content h2 {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.modal__close {
+  font-size: 18px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+.modal__close:hover {
+  color: #646379;
+}
+
+#signUpName,
+#signUpSurNmae,
+#signUpBirthDate,
+#signUpLogin,
+#signUpPassword,
+#signUpPasswordRepeat {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 30px;
+  height: 40px;
+  border-radius: 5px;
+  border-color: #A5A3B9;
+  width: 100%;
+}
+
+#signUpButton {
+  display: block;
+  width: 300px;
+  margin: 0 auto;
+  height: 40px;
+  border-radius: 12px;
+  background-color: #515076;
+  border: 1px solid white;
+  color: white;
+  padding: 3px;
+  cursor: pointer;
+}
+
+#signUpButton:hover {
+  background-color: #646379;
+}

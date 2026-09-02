@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style/modal.css">
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/headline.css">
     <link rel="stylesheet" href="style/clear-list.css">
@@ -13,15 +14,19 @@
     <link rel="stylesheet" href="style/product-list.css">
     <link rel="stylesheet" href="style/container.css">
     <link rel="stylesheet" href="style/buttons.css">
+    <link rel="stylesheet" href="style/footer.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic" rel="stylesheet" />
   </head>
 
   <body>
+    <header class="header">
+      <button id="buttonModal">Регистрация</button>
+    </header>
     <main>
 
       <div class="container dandelion-background">
 
-        <h1 class="headline">Выбери свой продукт</h1>
+        <h1 id="titleLink" class="headline">Выбери свой продукт</h1>
 
       <!-- <div class="container buttons-container">
         <button id="change-card-color-button" class="buttons-container__button">Поменять цвет карточки</button>
@@ -128,36 +133,93 @@
         </li>
       </ul> -->
 
-      <ul class="product-list clear-list" ></ul>
+        <ul class="product-list clear-list" ></ul>
 
-      <template id="product-card-template">
-        <li class="product-list__item card">
-          <img class="card__image" width="290" height="245"/>
-          <span class="card__category"></span>
-          <h2 class="card__name"></h2>
-          <p class="card__description">.</p>
-          <div class="card__compound-list compound">
-            <span class="compound__title">Состав:</span>
-            <ul class="compound__list">
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
-          </div>
-          <div class="card__price">
-            <b>Цена</b>
-            <span id="card__price"></span>
-          </div>
-        </li>
-      </template>
+        <template id="product-card-template">
+          <li class="product-list__item card">
+            <img class="card__image" width="290" height="245"/>
+            <span class="card__category"></span>
+            <h2 class="card__name"></h2>
+            <p class="card__description">.</p>
+            <div class="card__compound-list compound">
+              <span class="compound__title">Состав:</span>
+              <ul class="compound__list">
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+            </div>
+            <div class="card__price">
+              <b>Цена</b>
+              <span id="card__price"></span>
+            </div>
+          </li>
+        </template>
 
       </div>
 
     </main>
+
+
+    <footer id="footerLink" class="container footer">
+      <div class="footer__container">
+        <div class="footer__advertising">
+          <h2 class="footer__advertising-title">Product cards</h2>
+          <p class="footer__advertising-slogan">У Нас Самые Лучшие Продукты Для Кожы</p>
+          <a href="https://web.telegram.org"><img src="img/telegram.svg" height="14" width="24"></a>
+          <a href="https://vk.ru"><img src="img/vk.svg" width="21" height="17.61"></a>
+        </div>
+        <form action="" class="footer__subscribe">
+          <label for="userEmail" class="footer__subscribe-label">Подпишись на наши акции:</label>
+          <div class="footer__subscribe-input input">
+            <input name="email" type="email" id="userEmail" required placeholder="Введите Email...">
+            <div class="input__line"></div>
+            <input type="submit" id="subscribeButton" value="Подписаться">
+          </div>
+        </form>
+        <nav class="footer__links">
+          <h3 class="footer__links-title">Быстрые ссылки</h3>
+          <ul class="clear-list">
+            <li class="footer__links-mine"><a href="#titleLink">Главная</a></li>
+            <li class="footer__links-store"><a href="#titleLink">Магазин</a></li>
+            <li class="footer__links-contacts"><a href="#footerLink">Контакты</a></li>
+          </ul>
+        </nav>
+      </div>
+      <hr class="footer__line">
+      <a href="http://127.0.0.1:5500/index.html?" class="footer__link">www.product-cards.com©all right reserve</a>
+    </footer>
+
+    <div class="modal">
+      <div class="modal__body">
+        <div class="modal__content">
+          <button class="modal__close">X</button>
+          <h2>Регистрация</h2>
+          <form class="modal__signUp">
+            <label for="signUpName" >Введите своё имя:</label>
+            <input name="name" id="signUpName" required placeholder="Введите имя..." pattern="[А-ЯЁ][а-яё]+" title="Имя должно начинаться с заглавной русской буквы и содержать только русские буквы (например, Иван)">
+            <label for="signUpSurNmae">Введите свою фамилию:</label>
+            <input name="surName" id="signUpSurNmae" required placeholder="Введите фамилию..." pattern="[А-ЯЁ][а-яё]+" title="Фамилия должна начинаться с заглавной русской буквы и содержать только русские буквы (например, Иванов)">
+            <label for="signUpBirthDate">Введите свою дату рождения:</label>
+            <input type="date" name="birthDate" id="signUpBirthDate" required placeholder="Введите дату рождения...">
+            <label for="signUpLogin">Придумайте логин:</label>
+            <input name="login" id="signUpLogin" required placeholder="Введите Login..." pattern="[a-zA-Z0-9]{3,10}" title="Логин должен состоять только из латинских букв и цифр, от 3 до 10 символов">
+            <label for="signUpPassword">Придумайте пароль:</label>
+            <input type="password" name="password" id="signUpPassword" required placeholder="Введите пароль..." pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$" title="Пароль должен быть не менее 6 символов и содержать минимум одну заглавную латинскую букву, одну строчную и одну цифру">
+            <label for="signUpPasswordRepeat">Подтвердите пароль:</label>
+            <input type="password" name="passwordRepeat" id="signUpPasswordRepeat" required placeholder="Повторите пароль...">
+            <input type="submit" value="Зарегистрироваться" id="signUpButton">
+          </form>
+        </div>
+      </div>
+    </div>
+
+
     <script src="main.js"></script>
     <script src="homework-7.js"></script>
     <script src="homework-8.js"></script>
-    <script  type="module" src="homework-9.js"></script>
+    <script type="module" src="homework-9.js"></script>
     <script type="module" src="homework-10.js"></script>
+    <script type="module" src="homework-11.js"></script>
   </body>
 </html>
