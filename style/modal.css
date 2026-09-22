@@ -67,7 +67,8 @@
   width: 100%;
 }
 
-#signUpButton {
+#signUpButton,
+#clearButton {
   display: block;
   width: 300px;
   margin: 0 auto;
@@ -80,6 +81,7 @@
   cursor: pointer;
 }
 
-#signUpButton:hover {
+#signUpButton:hover,
+#clearButton:hover {
   background-color: #646379;
 }

@@ -1,83 +1,83 @@
-// 2. Задание
+// // 2. Задание
 
-const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-const fifthNumbers = numbers.slice(4);
+// const fifthNumbers = numbers.slice(4);
 
-console.log(fifthNumbers);
+// console.log(fifthNumbers);
 
-// 3. Задание
+// // 3. Задание
 
-const cars = ['BMW', 'Mercedes', 'Audi', 'Toyota', 'Honda'];
+// const cars = ['BMW', 'Mercedes', 'Audi', 'Toyota', 'Honda'];
 
-const favoriteCar = cars.find(car => car === 'Audi');
+// const favoriteCar = cars.find(car => car === 'Audi');
 
-console.log(favoriteCar);
+// console.log(favoriteCar);
 
-// 4. Задание
+// // 4. Задание
 
-function reverseArray(arr) {
-  return [...arr].reverse();
-}
+// function reverseArray(arr) {
+//   return [...arr].reverse();
+// }
 
-console.log(reverseArray(fifthNumbers));
-console.log(reverseArray(cars));
+// console.log(reverseArray(fifthNumbers));
+// console.log(reverseArray(cars));
 
-// 6. Задание
+// // 6. Задание
 
-const { comments } = await import('./comments.js');
+// const { comments } = await import('./comments.js');
 
-// 7. Задание
+// // 7. Задание
 
-const emailComments = comments.filter(comment => comment.email.includes('.com'));
+// const emailComments = comments.filter(comment => comment.email.includes('.com'));
 
-console.log(emailComments);
+// console.log(emailComments);
 
-// 8. Задание
+// // 8. Задание
 
-const postIdComments = comments.map(comment => { 
-  return {...comment, postId: comment.Id <= 5 ? 2 : 1}
-})
+// const postIdComments = comments.map(comment => { 
+//   return {...comment, postId: comment.Id <= 5 ? 2 : 1}
+// })
 
-console.log(postIdComments);
+// console.log(postIdComments);
 
-// 9. Задание
+// // 9. Задание
 
-const idNameComments = comments.map(comment => {
-  return {Id: comment.Id, name: comment.name}
-})
+// const idNameComments = comments.map(comment => {
+//   return {Id: comment.Id, name: comment.name}
+// })
 
-console.log(idNameComments);
+// console.log(idNameComments);
 
-// 10. Задание
+// // 10. Задание
 
-const validComments = comments.map(comment => {
-  return {...comment, invalid: comment.body.length > 180 ? true : false
-  }
-})
+// const validComments = comments.map(comment => {
+//   return {...comment, invalid: comment.body.length > 180 ? true : false
+//   }
+// })
 
-console.log(validComments);
+// console.log(validComments);
 
-// 11. Задание
+// // 11. Задание
 
-const onlyEmailComments = comments.reduce((acc, comment) => {
-  return [...acc, comment.email];
-}, []);
+// const onlyEmailComments = comments.reduce((acc, comment) => {
+//   return [...acc, comment.email];
+// }, []);
 
-console.log(onlyEmailComments);
+// console.log(onlyEmailComments);
 
-const onlyEmailComments2 = comments.map(comment => {
-  return comment.email
-})
+// const onlyEmailComments2 = comments.map(comment => {
+//   return comment.email
+// })
 
-console.log(onlyEmailComments2);
+// console.log(onlyEmailComments2);
 
-// 12. Задание
+// // 12. Задание
 
-const onlyEmailString = onlyEmailComments.join(', ');
+// const onlyEmailString = onlyEmailComments.join(', ');
 
-console.log(onlyEmailString);
+// console.log(onlyEmailString);
 
-const onlyEmailString2 = onlyEmailComments2.toString();
+// const onlyEmailString2 = onlyEmailComments2.toString();
 
-console.log(onlyEmailString2);
+// console.log(onlyEmailString2);

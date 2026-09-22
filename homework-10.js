@@ -34,10 +34,10 @@ if (cardsCount > 0) {
   getDisplayCards(slicedCards);
 }
 
-// Задание 4
+// // Задание 4
 
-const accArrayProducts = productCards.reduce((acc, product) => {
-  return [...acc, { [product.name]: product.description }]
-}, [])
+// const accArrayProducts = productCards.reduce((acc, product) => {
+//   return [...acc, { [product.name]: product.description }]
+// }, [])
 
-console.log(accArrayProducts);
+// console.log(accArrayProducts);
