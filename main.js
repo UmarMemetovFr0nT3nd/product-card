@@ -94,13 +94,82 @@ const modalWindow = new Modal('.modal');
 
 const modalForm = new Form('.modal__signUp')
 
-modalWindow.openModal()
-modalWindow.closeModal()
-modalWindow.checkModalStatus()
+const modalBtn = document.getElementById('buttonModal')
 
-modalForm.getValue()
-modalForm.chekValidity()
-modalForm.clearForm()
+
+modalBtn.addEventListener('click', () => {
+  modalWindow.openModal()
+})
+
+const modalClearBut = document.querySelector('#clearButton')
+modalClearBut.addEventListener('click', () => {
+  modalForm.clearForm()
+})
+
+const signUp = document.querySelector('.modal__signUp')
+
+let user = null;
+
+if (signUp) {
+  const passwordInput = signUp.querySelector('#signUpPassword');
+  const passwordRepeatInput = signUp.querySelector('#signUpPasswordRepeat');
+
+  function checkLiveMatch() {
+    if (passwordInput.value !== passwordRepeatInput.value) {
+      passwordRepeatInput.setCustomValidity('Пароли не совпадают!');
+    } else {
+      passwordRepeatInput.setCustomValidity('');
+    }
+  };
+  passwordInput.addEventListener('input', checkLiveMatch);
+  passwordRepeatInput.addEventListener('input', checkLiveMatch);
+
+
+  const birthDateInput = signUp.querySelector('#signUpBirthDate');
+
+  birthDateInput.addEventListener('input', () => {
+    birthDateInput.setCustomValidity('');
+
+    const selectedDate = new Date(birthDateInput.value);
+    const birthYear = selectedDate.getFullYear();   
+    if (birthYear > 2012) {
+      birthDateInput.setCustomValidity('Регистрация доступна только для лиц, старше 14!');
+      return; 
+    }
+  });
+}
+
+
+signUp.addEventListener('submit', (event) => {
+  event.preventDefault();
+  if (!modalForm.cheсkFormValidity()) {
+    return;
+  }
+  user = modalForm.getValue()
+  delete user.passwordRepeat;
+  const nowDate = new Date();
+  user.createdOn = nowDate.toString(' ');
+
+  console.log(user)
+  alert('Регистрация прошла успешно!')
+
+  modalWindow.closeModal()
+  modalForm.clearForm()
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
