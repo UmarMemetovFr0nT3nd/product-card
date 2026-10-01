@@ -1,3 +1,5 @@
+import { Modal } from "./modal.js"
+import { Form } from "./form.js"
 // const productCard = document.querySelector('.card');
 // const changeColorButton = document.querySelector('#change-card-color-button');
 
@@ -46,3 +48,191 @@
 // selectColorButton.addEventListener('click', () => {
 //   selectColorButton.classList.toggle('active');
 // });
+
+
+
+
+
+
+// Задание 3
+
+class GameConsole {
+  constructor(name, model, revision, year) {
+    this.name = name;
+    this.model = model;
+    this.revision = revision;
+    this.year = year;
+  }
+
+  showInfo() {
+    console.log(`${this.name} ${this.model}, ${this.revision}, ${this.year} была приобретена.`)
+  }
+}
+
+const playStation = new GameConsole('PlayStation', '5 PRO', '3 revision', '2026 года')
+
+playStation.showInfo()
+
+class GameComputer extends GameConsole {
+  constructor(name, model, year, graphicsCard) {
+    super(name, model, null, year)
+    this.graphicsCard = graphicsCard
+  }
+
+  showComputerInfo() {
+    console.log(`${this.name}, ${this.model}, ${this.year}, с ${this.graphicsCard} был приобретён.`)
+  }
+}
+
+const asusRog = new GameComputer('ASUS', 'ROG Strix G16', '2026 года', 'RTX5070TI')
+
+asusRog.showComputerInfo()
+
+// ----
+
+const modalWindow = new Modal('.modal');
+
+const modalForm = new Form('.modal__signUp')
+
+const modalBtn = document.getElementById('buttonModal')
+
+
+modalBtn.addEventListener('click', () => {
+  modalWindow.openModal()
+})
+
+const modalClearBut = document.querySelector('#clearButton')
+modalClearBut.addEventListener('click', () => {
+  modalForm.clearForm()
+})
+
+const signUp = document.querySelector('.modal__signUp')
+
+let user = null;
+
+if (signUp) {
+  const passwordInput = signUp.querySelector('#signUpPassword');
+  const passwordRepeatInput = signUp.querySelector('#signUpPasswordRepeat');
+
+  function checkLiveMatch() {
+    if (passwordInput.value !== passwordRepeatInput.value) {
+      passwordRepeatInput.setCustomValidity('Пароли не совпадают!');
+    } else {
+      passwordRepeatInput.setCustomValidity('');
+    }
+  };
+  passwordInput.addEventListener('input', checkLiveMatch);
+  passwordRepeatInput.addEventListener('input', checkLiveMatch);
+
+
+  const birthDateInput = signUp.querySelector('#signUpBirthDate');
+
+  birthDateInput.addEventListener('input', () => {
+    birthDateInput.setCustomValidity('');
+
+    const selectedDate = new Date(birthDateInput.value);
+    const birthYear = selectedDate.getFullYear();   
+    if (birthYear > 2012) {
+      birthDateInput.setCustomValidity('Регистрация доступна только для лиц, старше 14!');
+      return; 
+    }
+  });
+}
+
+
+signUp.addEventListener('submit', (event) => {
+  event.preventDefault();
+  if (!modalForm.cheсkFormValidity()) {
+    return;
+  }
+  user = modalForm.getValue()
+  delete user.passwordRepeat;
+  const nowDate = new Date();
+  user.createdOn = nowDate.toString(' ');
+
+  console.log(user)
+  alert('Регистрация прошла успешно!')
+
+  modalWindow.closeModal()
+  modalForm.clearForm()
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Задание 6
+
+function showCar() {
+  console.log(this.car)
+}
+
+const me = { car: 'BMW', showCar };
+const father = { car: 'VolksWagen', showCar };
+const wife = { car: 'MINI', showCar };
+
+me.showCar()
+father.showCar()
+wife.showCar()
+
+const showCarFunction = me.showCar.bind(me)
+
+showCarFunction()
+
+const book = {
+  name: 'Песнь льда и пламени',
+  author: 'Джордж Р. Р. Мартин',
+  show() {
+    console.log(this.author, this.name)
+  }
+}
+
+book.show()
+
+function showThis() {
+  console.log(this)
+}
+
+showThis()
+
+
+setTimeout(function() {
+  console.log(this)
+})
+
+
+const book2 = {
+  name: 'Песнь льда и пламени',
+  author: 'Джордж Р. Р. Мартин',
+  show() {
+    setTimeout(() => console.log(this.author, this.name))
+  }
+}
+
+book2.show()
+
+
+const film = {
+  name: 'Властелин Колец',
+  showName(director, year) {
+    console.log(this.name, director, year)
+  }
+}
+
+const fn = film.showName
+
+fn.call(film, 'Питер Джексон', 2001)
+
+fn.apply(film, ['Питер Джексон', 2001])
