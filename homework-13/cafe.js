@@ -1,3 +1,5 @@
+import { Drink } from './drinks.js';
+
 export class Cafe {
   constructor(name, address) {
     this.name = name;
@@ -9,6 +11,10 @@ export class Cafe {
   }
 
   orderDrink(drink) {
+    if (!(drink instanceof Drink)) {
+      return;
+    }
+
     console.log(`Вы заказали напиток: ${drink.name}. Заказ принят!`);
     setTimeout(() => {
       drink.serveDrink();

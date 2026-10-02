@@ -1,6 +1,10 @@
 class Drink {
   #temperature;
   constructor(name, volume, price, temperature) {
+    if (new.target === Drink) {
+      throw new Error("Нельзя создать экземпляр абстрактного класса Drink напрямую! Используйте дочерние классы (Coffee, Tea и т.д.).");
+    }
+
     this.name = name;
     this.volume = volume;
     this.price = price;
