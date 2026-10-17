@@ -10,7 +10,7 @@ import './homework-10.js'
 import './homework-11.js'
 import './homework-13/drinks.js'
 import './homework-13/cafe.js'
-import './homewoprk-14/Modal.js'
+import './homework-14/Modal.js'
 
 // const productCard = document.querySelector('.card');
 // const changeColorButton = document.querySelector('#change-card-color-button');

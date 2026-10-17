@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="async-style/style.css">
+</head>
+<body>
+  <div class="container">
+
+    <div>
+      <button class="button-request button-request-showed" id="button-request">Запросить данные</button>
+    </div>
+
+    <div class="buttons-container">
+      <button id="deleteSomeCard">Удалить карточку</button>
+      <button id="deleteAllCard">Удалить все карточки</button>
+      <button id="setAllCard">Получить все карточки</button>
+    </div>
+    <ul class="users"></ul>
+
+    <template class="users-template">
+      <li class="users__item">
+        <p id="user-id"></p>
+        <p id="user-name"></p>
+        <p id="user-surname"></p>
+        <p id="user-email"></p>
+        <p id="user-age"></p>
+      </li>
+    </template>
+
+    <div class="load">
+      <h1>Данные загружаются</h1>
+      <img src="async-img/load.gif" alt="load">
+    </div>
+
+  </div>
+  <script type="module" src="async.js"></script>
+</body>
+</html>
