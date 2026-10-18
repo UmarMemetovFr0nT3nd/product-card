@@ -4,28 +4,32 @@ let users = [];
 
 async function getUsers() {
   setTimeout(async () => {
+    let isSuccess = false;
     try {
       const responce = await fetch('./users.json');
+      if (!responce.ok) throw new Error('Данные не найдены!');
       const users = await responce.json();
       users.forEach(user => {
         localStorage.setItem(`user-${user.id}`, JSON.stringify(user))
       })
-     
+      isSuccess = true;
     } catch (error) {
-      new Error('Данные не найдены!')
-    } finally {
-      
-
-      for (let i = 0; i < localStorage.length; i++) {
-        const key = localStorage.key(i);
-        const info = localStorage.getItem(key);
-        const parsedUser = JSON.parse(info);
-        users.push(parsedUser);
-      }
-      getDisplayUsers(users)
+      alert(new Error('Данные не найдены!', error).message)
+      requestBtn.classList.add('button-request-showed');
       loadPage.classList.remove('load-showed')
-      usersList.classList.add('users-showed')
-      ruleBtns.classList.add('buttons-container-showed')
+    } finally {
+      if(isSuccess) {
+        for (let i = 0; i < localStorage.length; i++) {
+          const key = localStorage.key(i);
+          const info = localStorage.getItem(key);
+          const parsedUser = JSON.parse(info);
+          users.push(parsedUser);
+        }
+        getDisplayUsers(users)
+        loadPage.classList.remove('load-showed')
+        usersList.classList.add('users-showed')
+        ruleBtns.classList.add('buttons-container-showed')
+      }
     }
   }, 5000);
 }
@@ -100,19 +104,17 @@ dltSomeCard.addEventListener('click', () => {
 
   const userId = selectedCard.querySelector('#user-id').textContent;
 
+  users = users.filter(user => user.id !== userId);
 
-  localStorage.removeItem(`user-${userId}`);
+  localStorage.clear()
 
-  selectedCard.remove();
+  users.forEach(user => {
+    localStorage.setItem(`user-${user.id}`, JSON.stringify(user));
+  });
 
-  users = []
-    for (let i = 0; i < localStorage.length; i++) {
-      const key = localStorage.key(i);
-      const info = localStorage.getItem(key);
-      const parsedUser = JSON.parse(info);
-      users.push(parsedUser);
-    }
-    console.log(users)
+
+  usersList.innerHTML = '';
+  getDisplayUsers(users);
 });
 
 
